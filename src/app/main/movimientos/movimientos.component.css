@@ -1,0 +1,178 @@
+.div-screen-container{
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center; /* Centrar verticalmente en el centro */
+    justify-content: center; /* Centrar horizontalmente en el centro */
+    height: 89.5vh; /* Asegurarse de que el componente ocupe toda la altura señalada de la pantalla */
+  }
+
+.div-form{
+    border-radius: 10px;
+    width: 500px;
+    background-color: white;
+}
+.div-header{
+    border-radius: 10px 10px 0 0;
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px;
+}
+
+
+.div-container{
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.div-content-input {
+    margin-top: 10px;
+    /* border: 1px solid #ccc; */
+    padding: 10px; /* Espacio dentro del div para que el contenido no esté pegado al borde */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+  
+.input-group {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+
+  
+.input-content {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.checks-container {
+    /* margin-top: 10px; */
+    display: flex;
+    width: 50%;
+    justify-content:flex-start;
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+}
+
+.label-rol-container {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.elemMargin{
+    margin-bottom: 10px;
+}
+
+.div-entregas{
+    margin-top: 10px;
+    display: flex;
+    width: 60%;
+    justify-content:flex-start;
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+}
+
+.label-entregas{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.input-entregas{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+
+.checkboxes {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+/* .div-actions{
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+}
+ */
+
+.container-actions {
+    position: relative;
+    padding: 12px;
+    /* border: 1px solid #ccc; */
+}
+
+.div-actions {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    gap: 20px;
+}
+
+  
+  
+  
+  
+  
+
+
+
+.button-new{
+    background-color: #4CAF50;
+    border: 0;
+    border-radius: 2%;
+    color: white;
+    /* margin-left: 10px; */
+    cursor: pointer;
+    border-radius: 5px;
+}
+.mat-button{
+    background-color: #007bff;
+    border: 0;
+    border-radius: 2%;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.mat-button:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el mouse */
+}
+
+.button-new:hover {
+    background-color: #45a049; /* Cambio de color al pasar el mouse */
+}

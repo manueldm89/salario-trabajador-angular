@@ -1,0 +1,58 @@
+<div class="div-screen-container">
+    <div class="div-form">
+        <div class="div-header">
+          <div>Captura de movimientos por mes</div>
+        </div>
+        <div style="padding: 10px;">
+        <div class="div-btn-new">
+            <button class="button-new">
+                Nuevo
+            </button>
+        </div>
+        <div>
+            <div class="div-container">
+                <div class="div-content-input">
+                    <div class="input-group">
+                        <label>Número de empleado:&nbsp;&nbsp;&nbsp;</label>
+                        <input class="input-content">
+                    </div>
+                    <div class="input-group">
+                        <label>Nombre:&nbsp;&nbsp;&nbsp;</label>
+                        <input class="input-content">
+                    </div>
+                </div>
+                <div class="checks-container">
+                    <div class="label-rol-container ">
+                        <label class="elemMargin">Rol:</label>
+                        <label>Mes:</label>
+                    </div>
+                    <div class="checkboxes">
+                        <input type="text" class="elemMargin">
+                        <!-- <input type="text"> -->
+                        <select id="monthSelect">
+                            <option value="" disabled selected>Elige un mes...</option>
+                            <option *ngFor="let month of months" [value]="month">{{ month.name }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="div-entregas">
+                        <div class="label-entregas">
+                            <label>Cantidad de entregas:&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                        <div class="input-entregas">
+                            <input class="input-content">
+                        </div>
+                    </div>
+                </div>
+            </div>                      
+        </div>
+        <div class="container-actions">
+            <div class="div-actions">
+                <button  class="mat-button">Guardar</button>
+                <button  class="mat-button">Cancelar</button>
+            </div>          
+        </div>
+        </div>
+    </div>
+</div> 

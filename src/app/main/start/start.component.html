@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button>
+        <!-- <mat-icon>menu</mat-icon> -->
+    </button>
+    <span class="center-span">RINKU</span>
+</mat-toolbar>
+
+
+
+
+  <div class="card-screen-container" *ngIf="!movPagina">
+    <div class="card-container">
+        <!-- <mat-card class="card">
+            <mat-icon class="icon">person</mat-icon>
+            <div class="name">Nombre del Personaje</div>
+        </mat-card>
+        <mat-card>safdsfsdg</mat-card>
+        <mat-card>safdsfsdg</mat-card> -->
+        <div *ngFor="let opcion of arrOpciones">
+            <mat-card class="card" [routerLink]="opcion.rlink" (click)="moverVisor()">
+                <div class="card-image-container">
+                    <img class="card-image" src={{opcion.src}} alt={{opcion.text}}>
+                  </div>
+                <div class="card-text">{{opcion.text}}</div>
+            </mat-card>
+        </div>
+        
+
+          <!-- <mat-card class="card">
+            <div class="card-image-container">
+                <img class="card-image" src="../../../assets/images/movimientos.png" alt="Movimientos">
+              </div>
+            <div class="card-text">Movimientos</div>
+          </mat-card>
+          <mat-card class="card">
+            <div class="card-image-container">
+                <img class="card-image" src="../../../assets/images/pagos.png" alt="Movimientos">
+              </div>
+            <div class="card-text">Sueldos</div>
+          </mat-card> -->
+    </div>
+  </div>
+  <router-outlet *ngIf="movPagina"></router-outlet>
+
+  <button class="floating-button" (click)="regresar()" *ngIf="movPagina">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
