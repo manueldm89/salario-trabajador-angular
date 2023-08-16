@@ -14,7 +14,7 @@
                 <div class="div-content-input">
                     <div class="input-group">
                         <label>Número:&nbsp;&nbsp;&nbsp;</label>
-                        <input class="input-content" [disabled]="!editar" [(ngModel)]="numeroEmpleado" numbers-only (keydown.enter)="onEnter($event)">
+                        <input class="input-content" [disabled]="!editar" minlength="5" maxlength="5" [(ngModel)]="numeroEmpleado" numbers-only (keydown.enter)="onEnter($event)">
                     </div>
                     <div class="input-group">
                         <label>Nombre:&nbsp;&nbsp;&nbsp;</label>

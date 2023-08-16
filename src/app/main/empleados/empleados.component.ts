@@ -62,7 +62,7 @@ export class EmpleadosComponent implements OnInit{
 
   nuevoEmpleado(){
     this.mostrarSpinner = true;
-    // this.limpiar();
+    this.limpiar();
     this.obtenerNumeroEmpleado();
   }
 
@@ -79,13 +79,14 @@ export class EmpleadosComponent implements OnInit{
     else{
       if(this.accionCancelar){
         this.accionCancelar = false;
+        this.numeroEmpleado = this.respNumEmpleado;
         return;
       }
-      this.nuevoEmpleado();
+      // this.nuevoEmpleado();
     }
   }
   guardarEmpleado(){
-    if( this.puestoSeleccionado == 0 || this.nombreEmpleado == ''){
+    if( this.puestoSeleccionado == 0 || this.nombreEmpleado == '' || this.numeroEmpleado.length < 5){
       this._snackBar.open('Favor de llenar todos los campos', 'Cerrar', {
         duration: 3000
       });
@@ -107,12 +108,17 @@ export class EmpleadosComponent implements OnInit{
         }
         this.mostrarSpinner = false;
         // this.nuevoEmpleado();
-        this.limpiar();
+        this.nuevoEmpleado();
       })
   }
 
   editarEmpleado(){
     this.numeroEmpleado = '';
+    this.puestoSeleccionado = 0;
+    this.nombreEmpleado = '';
+    this.opcion1 = false;
+    this.opcion2 = false;
+    this.opcion3 = false;
     this.editar = true;
   }
 
@@ -137,6 +143,7 @@ export class EmpleadosComponent implements OnInit{
       this.nombreEmpleado = this.resulEmpleado.result[0].nombre_empleado;
       this.rolEmpleado = this.resulEmpleado.result[0].puesto;
       this.mostrarSpinner = false;
+      this.editar = false;
 
       switch (this.rolEmpleado) {
         case 'chofer':
