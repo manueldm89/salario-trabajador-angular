@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EmpleadosService } from './empleados.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MovimientosService } from '../movimientos/movimientos.service';
+import { Empleado } from '../interfaces/empleado.interface';
 
 @Component({
   selector: 'app-empleados',
@@ -14,11 +16,16 @@ export class EmpleadosComponent implements OnInit{
   opcion3: boolean = false;
   
   puestoSeleccionado: number = 0;
-  numeroEmpleado: number = 0;
+  numeroEmpleado: string = '';
   nombreEmpleado: string = '';
   mostrarPantalla: boolean = false;
   mostrarSpinner: boolean = false;
-  constructor(private empleadoService: EmpleadosService, private _snackBar: MatSnackBar, private router: Router){}
+  editar: boolean = false;
+  respNumEmpleado: string = '';
+  resulEmpleado!: Empleado;
+  rolEmpleado: string = '';
+
+  constructor(private empleadoService: EmpleadosService, private _snackBar: MatSnackBar, private router: Router, private empladoDatosService: MovimientosService){}
 
   ngOnInit(): void {
     this.obtenerNumeroEmpleado();
@@ -45,7 +52,8 @@ export class EmpleadosComponent implements OnInit{
   obtenerNumeroEmpleado(){
     this.empleadoService.getNumeroEmpleado()
       .subscribe( result => {
-        this.numeroEmpleado = result.result.numsiguiente;
+        this.numeroEmpleado = ''+result.result.numsiguiente;
+        this.respNumEmpleado = ''+result.result.numsiguiente;
         this.mostrarPantalla = true;
         this.mostrarSpinner = false;
       })
@@ -53,7 +61,7 @@ export class EmpleadosComponent implements OnInit{
 
   nuevoEmpleado(){
     this.mostrarSpinner = true;
-    this.limpiar();
+    // this.limpiar();
     this.obtenerNumeroEmpleado();
   }
 
@@ -63,6 +71,13 @@ export class EmpleadosComponent implements OnInit{
     this.opcion1 = false;
     this.opcion2 = false;
     this.opcion3 = false;
+    if(this.editar){
+      this.editar = false;
+      this.numeroEmpleado = this.respNumEmpleado;
+    }
+    else{
+      this.nuevoEmpleado();
+    }
   }
   guardarEmpleado(){
     if( this.puestoSeleccionado == 0 || this.nombreEmpleado == ''){
@@ -73,7 +88,7 @@ export class EmpleadosComponent implements OnInit{
     }
 
     this.mostrarSpinner = true;
-    this.empleadoService.guardarEmpleado(this.numeroEmpleado, this.nombreEmpleado, this.puestoSeleccionado)
+    this.empleadoService.guardarEmpleado(+this.numeroEmpleado, this.nombreEmpleado, this.puestoSeleccionado)
       .subscribe(result => {
         if(result.result.estatus == 1){
           this._snackBar.open('Empleado guardado exitoso', 'Cerrar', {
@@ -86,11 +101,57 @@ export class EmpleadosComponent implements OnInit{
           });
         }
         this.mostrarSpinner = false;
-        this.nuevoEmpleado();
+        // this.nuevoEmpleado();
+        this.limpiar();
       })
   }
 
-  regresar(){
+  editarEmpleado(){
+    this.numeroEmpleado = '';
+    this.editar = true;
+  }
+
+  onEnter(event: any) {
+    if(this.numeroEmpleado.length == 5)
+      this.obtenerDatosEmpleado();
+  }
+
+  obtenerDatosEmpleado(){
+    this.mostrarSpinner = true;
+    this.empladoDatosService.obtenerInfoEmpleado(+this.numeroEmpleado)
+    .subscribe(result =>{
+      if(result.result.length == 0){
+        this._snackBar.open('No existe empleado', 'Cerrar', {
+          duration: 3000
+        });
+        this.mostrarSpinner = false;
+        this.limpiar();
+        return;
+      }
+      this.resulEmpleado = result;
+      this.nombreEmpleado = this.resulEmpleado.result[0].nombre_empleado;
+      this.rolEmpleado = this.resulEmpleado.result[0].puesto;
+      this.mostrarSpinner = false;
+
+      switch (this.rolEmpleado) {
+        case 'chofer':
+          this.opcion1 = true;
+          this.puestoSeleccionado = 1;
+          break;
+        case 'cargador':
+          this.opcion2 = true;
+          this.puestoSeleccionado = 2;
+          break;
+        case 'auxiliar':
+          this.opcion3 = true;
+          this.puestoSeleccionado = 3;
+          break;      
+        default:
+          break;
+      }
+    })
+  }
+  cancelar(){
     this.limpiar();
   }
   

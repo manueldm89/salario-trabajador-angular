@@ -14,7 +14,7 @@
                 <div class="div-content-input">
                     <div class="input-group">
                         <label>Número:&nbsp;&nbsp;&nbsp;</label>
-                        <input class="input-content" disabled [(ngModel)]="numeroEmpleado">
+                        <input class="input-content" [disabled]="!editar" [(ngModel)]="numeroEmpleado" numbers-only (keydown.enter)="onEnter($event)">
                     </div>
                     <div class="input-group">
                         <label>Nombre:&nbsp;&nbsp;&nbsp;</label>
@@ -36,7 +36,8 @@
         <div class="container-actions">
             <div class="div-actions">
                 <button  class="mat-button" (click)="guardarEmpleado()">Guardar</button>
-                <button  class="mat-button" (click)="regresar()">Cancelar</button>
+                <button  class="mat-button" (click)="editarEmpleado()">Editar</button>
+                <button  class="mat-button" (click)="cancelar()">Cancelar</button>
             </div>          
         </div>
         </div>
