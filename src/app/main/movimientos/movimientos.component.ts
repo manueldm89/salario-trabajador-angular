@@ -39,7 +39,15 @@ export class MovimientosComponent implements OnInit{
   }
 
   onEnter(event: any) {
-    this.obtenerInforEmpleado(+this.numeroEmpleado);
+    if(this.numeroEmpleado.length == 5)
+      this.obtenerInforEmpleado(+this.numeroEmpleado);
+  }
+
+  onKeyDown(event: KeyboardEvent) {
+    if (event.key === "Tab") {
+      if(this.numeroEmpleado.length == 5)
+        this.obtenerInforEmpleado(+this.numeroEmpleado);
+    }
   }
 
   obtenerInforEmpleado(empleado:number){
@@ -62,7 +70,7 @@ export class MovimientosComponent implements OnInit{
   }
 
   guardarEntregas(){
-    if (this.numeroEmpleado == '' || +this.mesSeleccionado == 0 || this.numeroEntregas == ''){
+    if (this.numeroEmpleado.length < 5 || +this.mesSeleccionado == 0 || this.numeroEntregas == ''){
       this._snackBar.open('Por favor, ingrese los datos completos', 'Cerrar', {
         duration: 3000
       });

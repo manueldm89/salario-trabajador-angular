@@ -14,7 +14,7 @@
                 <div class="div-content-input">
                     <div class="input-group">
                         <label>Número de empleado:&nbsp;&nbsp;&nbsp;</label>
-                        <input type="text" class="input-content" minlength="5" maxlength="5" numbers-only [(ngModel)]="numeroEmpleado" (keyup.enter)="onEnter($event)"/>
+                        <input type="text" class="input-content" minlength="5" maxlength="5" numbers-only [(ngModel)]="numeroEmpleado" (keydown.enter)="onEnter($event)"/>
                     </div>
                     <div class="input-group">
                         <label>Nombre:&nbsp;&nbsp;&nbsp;</label>
