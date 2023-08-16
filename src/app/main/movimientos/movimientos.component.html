@@ -1,11 +1,11 @@
 <div class="div-screen-container">
-    <div class="div-form">
+    <div class="div-form" *ngIf="cargarPantalla">
         <div class="div-header">
           <div>Captura de movimientos por mes</div>
         </div>
         <div style="padding: 10px;">
         <div class="div-btn-new">
-            <button class="button-new">
+            <button class="button-new" (click)="limpiar()">
                 Nuevo
             </button>
         </div>
@@ -14,11 +14,11 @@
                 <div class="div-content-input">
                     <div class="input-group">
                         <label>Número de empleado:&nbsp;&nbsp;&nbsp;</label>
-                        <input class="input-content">
+                        <input type="text" class="input-content" minlength="5" maxlength="5" numbers-only [(ngModel)]="numeroEmpleado" (keyup.enter)="onEnter($event)"/>
                     </div>
                     <div class="input-group">
                         <label>Nombre:&nbsp;&nbsp;&nbsp;</label>
-                        <input class="input-content">
+                        <input class="input-content" disabled [(ngModel)]="nombreEmpleado">
                     </div>
                 </div>
                 <div class="checks-container">
@@ -27,11 +27,11 @@
                         <label>Mes:</label>
                     </div>
                     <div class="checkboxes">
-                        <input type="text" class="elemMargin">
+                        <input type="text" class="elemMargin" disabled [(ngModel)]="rolEmpleado">
                         <!-- <input type="text"> -->
-                        <select id="monthSelect">
-                            <option value="" disabled selected>Elige un mes...</option>
-                            <option *ngFor="let month of months" [value]="month">{{ month.name }}</option>
+                        <select id="monthSelect" [(ngModel)]="mesSeleccionado">
+                            <option [value]=0 disabled selected>Elige un mes...</option>
+                            <option *ngFor="let month of resulMeses.result" [value]="month.mes_id">{{ month.mes_nombre }}</option>
                         </select>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                             <label>Cantidad de entregas:&nbsp;&nbsp;&nbsp;</label>
                         </div>
                         <div class="input-entregas">
-                            <input class="input-content">
+                            <input class="input-content" minlength="1" numbers-only [(ngModel)]="numeroEntregas">
                         </div>
                     </div>
                 </div>
@@ -49,10 +49,14 @@
         </div>
         <div class="container-actions">
             <div class="div-actions">
-                <button  class="mat-button">Guardar</button>
+                <button  class="mat-button" (click)="guardarEntregas()">Guardar</button>
                 <button  class="mat-button">Cancelar</button>
             </div>          
         </div>
         </div>
+    </div>
+    <!-- <mat-spinner *ngIf="!cargarPantalla || mostrarSpinner" id="spinner"></mat-spinner> -->
+    <div class="spinner-overlay" *ngIf="!cargarPantalla || mostrarSpinner">
+        <div class="spinner"></div>
     </div>
 </div> 

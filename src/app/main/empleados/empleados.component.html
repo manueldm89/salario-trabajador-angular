@@ -1,11 +1,11 @@
 <div class="div-screen-container">
-    <div class="div-form">
+    <div class="div-form" *ngIf="mostrarPantalla">
         <div class="div-header">
           <div>Empleados</div>
         </div>
         <div style="padding: 10px;">
         <div class="div-btn-new">
-            <button class="button-new">
+            <button class="button-new" (click)="nuevoEmpleado()">
                 Nuevo
             </button>
         </div>
@@ -14,11 +14,11 @@
                 <div class="div-content-input">
                     <div class="input-group">
                         <label>Número:&nbsp;&nbsp;&nbsp;</label>
-                        <input class="input-content">
+                        <input class="input-content" disabled [(ngModel)]="numeroEmpleado">
                     </div>
                     <div class="input-group">
                         <label>Nombre:&nbsp;&nbsp;&nbsp;</label>
-                        <input class="input-content">
+                        <input class="input-content" [(ngModel)]="nombreEmpleado" letters-only>
                     </div>
                 </div>
                 <div class="checks-container">
@@ -26,19 +26,20 @@
                         <label>Rol:</label>
                     </div>
                     <div class="checkboxes">
-                        <label><input type="checkbox"> Chofer</label>
-                        <label><input type="checkbox"> Cargador</label>
-                        <label><input type="checkbox"> Auxiliar</label>
+                        <label><input type="checkbox" [(ngModel)]="opcion1" (change)="checkChanged(1)"> Chofer</label>
+                        <label><input type="checkbox" [(ngModel)]="opcion2" (change)="checkChanged(2)"> Cargador</label>
+                        <label><input type="checkbox" [(ngModel)]="opcion3" (change)="checkChanged(3)"> Auxiliar</label>
                     </div>
                 </div>
             </div>                      
         </div>
         <div class="container-actions">
             <div class="div-actions">
-                <button  class="mat-button">Guardar</button>
+                <button  class="mat-button" (click)="guardarEmpleado()">Guardar</button>
                 <button  class="mat-button">Cancelar</button>
             </div>          
         </div>
         </div>
     </div>
+    <app-spinner *ngIf="!mostrarPantalla || mostrarSpinner"></app-spinner>
 </div> 

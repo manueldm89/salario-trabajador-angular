@@ -1,5 +1,5 @@
 <div class="div-screen-container">
-    <div class="div-form">
+    <div class="div-form" *ngIf="mostrarPantalla">
         <div class="div-header">
           <div>Empleados</div>
         </div>
@@ -13,32 +13,68 @@
             <div class="div-container">
                 <div class="div-content-input">
                     <div class="input-group">
-                        <label>Número:&nbsp;&nbsp;&nbsp;</label>
-                        <input class="input-content">
-                    </div>
-                    <div class="input-group">
-                        <label>Nombre:&nbsp;&nbsp;&nbsp;</label>
-                        <input class="input-content">
+                        <div class="divEmpleado">
+                            <label>Empleado:&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                        <div class="divDatos">
+                            <select id="empleadoSelect" [(ngModel)]="empleadoSeleccionado" class="selectEmpleado" (change)="onSelect()">
+                                <option [value]=0 disabled selected>Elige un empleado...</option>
+                                <option *ngFor="let empleado of empleados.result" [value]="empleado.num_empleado">{{empleado.num_empleado}} - {{empleado.nombre_empleado}}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="checks-container">
-                    <div class="label-rol-container ">
-                        <label>Rol:</label>
+                <div class="div-content-mes">
+                    <div class="input-group">
+                        <div class="divLabelMes">
+                            <label>Mes:&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                        <div class="divMes">
+                            <select [(ngModel)]="mesSeleccionado" (change)="onSelect()">
+                                <option [value]=0 disabled selected>Elige un mes...</option>
+                                <option *ngFor="let mes of resulMeses.result" [value]="mes.mes_id">{{mes.mes_nombre}}</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="checkboxes">
-                        <label><input type="checkbox"> Chofer</label>
-                        <label><input type="checkbox"> Cargador</label>
-                        <label><input type="checkbox"> Auxiliar</label>
+                </div>
+                <!-- <div class="input-group">
+                    <div class="">
+                        <label>Mes:</label>
                     </div>
+                    <div class="">
+                        <select id="monthSelect" >
+                            <option [value]=0 disabled selected>Elige un mes...</option>
+                            <option *ngFor="let month of resulMeses.result" [value]="month.mes_id">{{ month.mes_nombre }}</option>
+                        </select>
+                    </div>
+                </div> -->
+                <div class="sueldo-container" *ngIf="mostrarSueldo">
+                    <div class="columns-container-sueldo">
+                        <div class="column">
+                            <div class="row">Concepto</div>
+                            <hr>
+                            <div class="row">Sueldo Bruto</div>
+                            <div class="row">Adicional Entrega</div>
+                            <div class="row">Bono</div>
+                            <div class="row">ISR</div>
+                            <div class="row">Vale Despensa</div>
+                            <div class="row total-row">Total Sueldo</div>
+                        </div>
+                        <div class="column">
+                            <div class="rowMonto align-right">Monto</div>
+                            <hr>
+                            <div class="rowMonto align-right"><label>{{ sueldoDesglosado.sueldo_base }}</label></div>
+                            <div class="rowMonto align-right">{{ sueldoDesglosado.adicional_entrega }}</div>
+                            <div class="rowMonto align-right">{{ sueldoDesglosado.bono }}</div>
+                            <div class="rowMonto align-right">{{ sueldoDesglosado.isr }}</div>
+                            <div class="rowMonto align-right">{{ sueldoDesglosado.vale_despensa }}</div>
+                            <div class="rowMonto total-row align-right">{{ sueldoDesglosado.total_sueldo }}</div>
+                        </div>
+                      </div>                  
                 </div>
             </div>                      
         </div>
-        <div class="container-actions">
-            <div class="div-actions">
-                <button  class="mat-button">Guardar</button>
-                <button  class="mat-button">Cancelar</button>
-            </div>          
-        </div>
         </div>
     </div>
+    <app-spinner *ngIf="!mostrarPantalla || mostrarSpinner"></app-spinner>
 </div> 
