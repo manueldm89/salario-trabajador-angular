@@ -24,6 +24,7 @@ export class EmpleadosComponent implements OnInit{
   respNumEmpleado: string = '';
   resulEmpleado!: Empleado;
   rolEmpleado: string = '';
+  accionCancelar: boolean = false;
 
   constructor(private empleadoService: EmpleadosService, private _snackBar: MatSnackBar, private router: Router, private empladoDatosService: MovimientosService){}
 
@@ -76,6 +77,10 @@ export class EmpleadosComponent implements OnInit{
       this.numeroEmpleado = this.respNumEmpleado;
     }
     else{
+      if(this.accionCancelar){
+        this.accionCancelar = false;
+        return;
+      }
       this.nuevoEmpleado();
     }
   }
@@ -152,6 +157,7 @@ export class EmpleadosComponent implements OnInit{
     })
   }
   cancelar(){
+    this.accionCancelar = true;
     this.limpiar();
   }
   
