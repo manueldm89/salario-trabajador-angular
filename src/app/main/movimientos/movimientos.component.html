@@ -26,9 +26,8 @@
                         <label class="elemMargin">Rol:</label>
                         <label>Mes:</label>
                     </div>
-                    <div class="checkboxes">
+                    <div class="div-rol-select">
                         <input type="text" class="elemMargin" disabled [(ngModel)]="rolEmpleado">
-                        <!-- <input type="text"> -->
                         <select id="monthSelect" [(ngModel)]="mesSeleccionado">
                             <option [value]=0 disabled selected>Elige un mes...</option>
                             <option *ngFor="let month of resulMeses.result" [value]="month.mes_id">{{ month.mes_nombre }}</option>
@@ -50,13 +49,10 @@
         <div class="container-actions">
             <div class="div-actions">
                 <button  class="mat-button" (click)="guardarEntregas()">Guardar</button>
-                <button  class="mat-button">Cancelar</button>
+                <button  class="mat-button" (click)="limpiar()">Cancelar</button>
             </div>          
         </div>
         </div>
     </div>
-    <!-- <mat-spinner *ngIf="!cargarPantalla || mostrarSpinner" id="spinner"></mat-spinner> -->
-    <div class="spinner-overlay" *ngIf="!cargarPantalla || mostrarSpinner">
-        <div class="spinner"></div>
-    </div>
+    <app-spinner *ngIf="!cargarPantalla || mostrarSpinner"></app-spinner>
 </div> 

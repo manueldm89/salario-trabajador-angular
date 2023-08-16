@@ -24,9 +24,7 @@ export class LettersOnlyDirective {
     }
 
   }
-
 }
-
 
 @NgModule({
   declarations: [LettersOnlyDirective],

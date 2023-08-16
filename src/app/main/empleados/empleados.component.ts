@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpleadosService } from './empleados.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-empleados',
@@ -17,7 +18,7 @@ export class EmpleadosComponent implements OnInit{
   nombreEmpleado: string = '';
   mostrarPantalla: boolean = false;
   mostrarSpinner: boolean = false;
-  constructor(private empleadoService: EmpleadosService, private _snackBar: MatSnackBar){}
+  constructor(private empleadoService: EmpleadosService, private _snackBar: MatSnackBar, private router: Router){}
 
   ngOnInit(): void {
     this.obtenerNumeroEmpleado();
@@ -52,14 +53,17 @@ export class EmpleadosComponent implements OnInit{
 
   nuevoEmpleado(){
     this.mostrarSpinner = true;
+    this.limpiar();
+    this.obtenerNumeroEmpleado();
+  }
+
+  limpiar(){
     this.puestoSeleccionado = 0;
     this.nombreEmpleado = '';
     this.opcion1 = false;
     this.opcion2 = false;
     this.opcion3 = false;
-    this.obtenerNumeroEmpleado();
   }
-
   guardarEmpleado(){
     if( this.puestoSeleccionado == 0 || this.nombreEmpleado == ''){
       this._snackBar.open('Favor de llenar todos los campos', 'Cerrar', {
@@ -84,6 +88,10 @@ export class EmpleadosComponent implements OnInit{
         this.mostrarSpinner = false;
         this.nuevoEmpleado();
       })
+  }
+
+  regresar(){
+    this.limpiar();
   }
   
 

@@ -1,9 +1,9 @@
 .div-screen-container{
     background-color: antiquewhite;
     display: flex;
-    align-items: center; /* Centrar verticalmente en el centro */
-    justify-content: center; /* Centrar horizontalmente en el centro */
-    height: 89.5vh; /* Asegurarse de que el componente ocupe toda la altura señalada de la pantalla */
+    align-items: center;
+    justify-content: center;
+    height: 89.5vh;
   }
 
 .div-form{
@@ -19,7 +19,7 @@
 }
 
 .div-btn-new{
-    /* padding: 0 7px; */
+
 }
   
 .div-container{
@@ -39,8 +39,7 @@
 
 .div-content-mes {
     margin-top: 10px;
-    /* border: 1px solid #ccc; */
-    padding: 10px; /* Espacio dentro del div para que el contenido no esté pegado al borde */
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -56,16 +55,9 @@
 .label {
     font-weight: bold;
     margin-right: 10px;
-    width: 30%; /* Ancho del label */
+    width: 30%;
 }
   
-.input-content {
-    flex: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
 .divEmpleado{
     width: 20%;
 }
@@ -74,14 +66,12 @@
     width: 80%;
 }
 
-
 .selectEmpleado{
     width: 100%;
 }
 
 .sueldo-container {
     margin-top: 10px;
-    /* display: flex; */
     width: 100%;
     min-width: 10%;
     justify-content:flex-start;
@@ -89,100 +79,23 @@
     border-radius: 10px;
 }
 
-.label-rol-container {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-
 .label {
     font-weight: bold;
     margin-bottom: 5px;
 }
-
-.checkboxes {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-
-input[type="checkbox"] {
-    margin-right: 5px;
-}
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-/* .div-actions{
-    padding: 10px;
-    display: flex;
-    gap: 20px;
-}
- */
-
-.container-actions {
-    position: relative;
-    padding: 12px;
-    /* border: 1px solid #ccc; */
-}
-
-.div-actions {
-    padding: 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    gap: 20px;
-}
-
-  
-  
-  
-  
-  
-
-
 
 .button-new{
     background-color: #4CAF50;
     border: 0;
     border-radius: 2%;
     color: white;
-    /* margin-left: 10px; */
     cursor: pointer;
     border-radius: 5px;
-}
-.mat-button{
-    background-color: #007bff;
-    border: 0;
-    border-radius: 2%;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-
-.mat-button:hover {
-    background-color: #0056b3; /* Cambio de color al pasar el mouse */
 }
 
 .button-new:hover {
-    background-color: #45a049; /* Cambio de color al pasar el mouse */
+    background-color: #45a049;
 }
-
 
 .columns-container-sueldo {
     display: flex;
@@ -190,30 +103,30 @@ input[type="checkbox"] {
     width: 100%;
     padding: 10px 30px;
     box-sizing: border-box;
-  }
+}
   
-  .column {
+.column {
     flex: 1;
-  }
-  
-  .row {
+}
+
+.row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-  }
-  .rowMonto {
+}
+.rowMonto {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
     text-align: right;
-  }
+}
 
-  .total-row {
+.total-row {
     font-weight: bold;
-  }
+}
 
-  .align-right {
-    justify-content: flex-end; /* Alineación derecha */
-  }
+.align-right {
+    justify-content: flex-end;
+}

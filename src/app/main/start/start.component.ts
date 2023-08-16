@@ -21,34 +21,8 @@ export class StartComponent implements OnInit{
   ]
 
   ngOnInit(): void {
-    
-    this.movPagina = false;
-    this.items = [
-      {
-          label: 'Empleados',
-      },
-      {
-          label: 'Movimientos',
-      }
-    ];
-    
+    this.movPagina = false;    
   }
-
-  // direccionar(opcion:number){
-  //   switch (opcion) {
-  //     case 1:
-  //       this.router.navigateByUrl('./empleados');
-  //       break;
-  //     case 2:
-  //       this.router.navigateByUrl('./movimientos');
-  //       break;
-  //     case 3:
-  //       this.router.navigateByUrl('./sueldos');
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
 
   moverVisor(){
     this.movPagina = true;

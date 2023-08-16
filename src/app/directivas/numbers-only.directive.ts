@@ -23,9 +23,7 @@ export class NumbersOnlyDirective {
       event.stopPropagation();
     }
   }
-
 }
-
 
 @NgModule({
   declarations: [NumbersOnlyDirective],

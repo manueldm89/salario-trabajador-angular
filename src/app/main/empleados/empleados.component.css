@@ -1,9 +1,9 @@
 .div-screen-container{
     background-color: antiquewhite;
     display: flex;
-    align-items: center; /* Centrar verticalmente en el centro */
-    justify-content: center; /* Centrar horizontalmente en el centro */
-    height: 89.5vh; /* Asegurarse de que el componente ocupe toda la altura señalada de la pantalla */
+    align-items: center; 
+    justify-content: center;
+    height: 89.5vh;
   }
 
 .div-form{
@@ -19,7 +19,7 @@
 }
 
 .div-btn-new{
-    /* padding: 0 7px; */
+
 }
   
 .div-container{
@@ -31,8 +31,7 @@
 
 .div-content-input {
     margin-top: 10px;
-    /* border: 1px solid #ccc; */
-    padding: 10px; /* Espacio dentro del div para que el contenido no esté pegado al borde */
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -48,7 +47,7 @@
 .label {
     font-weight: bold;
     margin-right: 10px;
-    width: 30%; /* Ancho del label */
+    width: 30%;
 }
   
 .input-content {
@@ -89,33 +88,10 @@
 input[type="checkbox"] {
     margin-right: 5px;
 }
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-/* .div-actions{
-    padding: 10px;
-    display: flex;
-    gap: 20px;
-}
- */
 
 .container-actions {
     position: relative;
     padding: 12px;
-    /* border: 1px solid #ccc; */
 }
 
 .div-actions {
@@ -126,20 +102,11 @@ input[type="checkbox"] {
     gap: 20px;
 }
 
-  
-  
-  
-  
-  
-
-
-
 .button-new{
     background-color: #4CAF50;
     border: 0;
     border-radius: 2%;
     color: white;
-    /* margin-left: 10px; */
     cursor: pointer;
     border-radius: 5px;
 }
@@ -154,9 +121,9 @@ input[type="checkbox"] {
 }
 
 .mat-button:hover {
-    background-color: #0056b3; /* Cambio de color al pasar el mouse */
+    background-color: #0056b3;
 }
 
 .button-new:hover {
-    background-color: #45a049; /* Cambio de color al pasar el mouse */
+    background-color: #45a049;
 }

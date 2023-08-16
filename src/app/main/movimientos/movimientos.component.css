@@ -1,9 +1,9 @@
 .div-screen-container{
     background-color: antiquewhite;
     display: flex;
-    align-items: center; /* Centrar verticalmente en el centro */
-    justify-content: center; /* Centrar horizontalmente en el centro */
-    height: 89.5vh; /* Asegurarse de que el componente ocupe toda la altura señalada de la pantalla */
+    align-items: center;
+    justify-content: center;
+    height: 89.5vh;
   }
 
 .div-form{
@@ -28,8 +28,7 @@
 
 .div-content-input {
     margin-top: 10px;
-    /* border: 1px solid #ccc; */
-    padding: 10px; /* Espacio dentro del div para que el contenido no esté pegado al borde */
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -52,11 +51,9 @@
 }
 
 .checks-container {
-    /* margin-top: 10px; */
     display: flex;
     width: 50%;
     justify-content:flex-start;
-    /* border: 1px solid #ccc; */
     border-radius: 10px;
 }
 
@@ -76,7 +73,6 @@
     display: flex;
     width: 60%;
     justify-content:flex-start;
-    /* border: 1px solid #ccc; */
     border-radius: 10px;
 }
 
@@ -95,43 +91,23 @@
 }
 
 
-.checkboxes {
+.div-rol-select {
     width: 60%;
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
-input[type="checkbox"] {
-    margin-right: 5px;
-}
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-/* .div-actions{
+.div-actions{
     padding: 10px;
     display: flex;
     gap: 20px;
 }
- */
+ 
 
 .container-actions {
     position: relative;
     padding: 12px;
-    /* border: 1px solid #ccc; */
 }
 
 .div-actions {
@@ -142,20 +118,11 @@ input[type="checkbox"] {
     gap: 20px;
 }
 
-  
-  
-  
-  
-  
-
-
-
 .button-new{
     background-color: #4CAF50;
     border: 0;
     border-radius: 2%;
     color: white;
-    /* margin-left: 10px; */
     cursor: pointer;
     border-radius: 5px;
 }
@@ -170,37 +137,9 @@ input[type="checkbox"] {
 }
 
 .mat-button:hover {
-    background-color: #0056b3; /* Cambio de color al pasar el mouse */
+    background-color: #0056b3;
 }
 
 .button-new:hover {
-    background-color: #45a049; /* Cambio de color al pasar el mouse */
+    background-color: #45a049;
 }
-
-
-.spinner-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #ffffff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
