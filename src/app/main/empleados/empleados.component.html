@@ -36,7 +36,7 @@
         <div class="container-actions">
             <div class="div-actions">
                 <button  class="mat-button" (click)="guardarEmpleado()">Guardar</button>
-                <button  class="mat-button" (click)="editarEmpleado()">Editar</button>
+                <button  class="mat-button" [disabled]="editar" (click)="editarEmpleado()">Editar</button>
                 <button  class="mat-button" (click)="cancelar()">Cancelar</button>
             </div>          
         </div>
